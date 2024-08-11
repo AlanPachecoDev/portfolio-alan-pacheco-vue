@@ -4,11 +4,13 @@
     <!-- <v-main>
       <HelloWorld/>
     </v-main> -->
-    <router-view />
+    <RouterView></RouterView>
   </v-app>
 </template>
 
 <script>
+import { RouterView } from "vue-router";
+
 import Nav_Bar from './components/Nav_Bar.vue'
 
 export default {
@@ -16,6 +18,7 @@ export default {
 
   components: {
     Nav_Bar,
+    RouterView
   },
 
   data: () => ({

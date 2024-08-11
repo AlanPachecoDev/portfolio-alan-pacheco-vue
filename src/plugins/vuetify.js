@@ -10,10 +10,12 @@ export default createVuetify({
       light: {
         dark: false,
         colors: {
+          header: '#ffffff',
+          hero: '#AFAFAF',
           primary: '#ffffff',
           secondary: '#545454',
           text: '#000',
-          accent: '#82B1FF',
+          contrast: '#000',
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
@@ -23,10 +25,12 @@ export default createVuetify({
       dark: {
         dark: true,
         colors: {
-          primary: '#545454',
+          header: '#545454',
+          hero: '#DFDFDF',
+          primary: '#000',
           secondary: '#ffffff',
           text: '#ffffff',
-          accent: '#FF4081',
+          contrast: '#fff',
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',

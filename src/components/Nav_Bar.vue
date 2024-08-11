@@ -1,5 +1,5 @@
 <template>
-    <header :style="{ backgroundColor: getBackgroundColor(), color: getTextColor() }">
+    <header :style="{ backgroundColor: getHeaderColor(), color: getTextColor() }">
         <nav>
             <div id="logo-side">
                 <div class="nav-logo">
@@ -9,7 +9,7 @@
 
             <ul class="nav-links" >
                 <div class="nav-sides" id="center-side" >
-                    <li><a href="#home" >{{ $t('Home_Text') }} </a></li>
+                    <li><a href="/" >{{ $t('Home_Text') }} </a></li>
                     <li><a href="#about">{{ $t('About_Text') }}</a></li>
                     <li><a href="#services"> {{ $t('Skills_Text') }}</a></li>
                     <li><a href="#services"> {{ $t('Portfolio_Text') }}</a></li>
