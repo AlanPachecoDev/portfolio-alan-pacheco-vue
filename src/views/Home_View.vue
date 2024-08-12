@@ -1,6 +1,6 @@
 <template>
+  
   <div class="slogan-home-container" :style="{ backgroundColor: getBackgroundColor(), color: getTextColor() }">
-
     <div class="home-content">
       <div class="home-image">
         <img id="home-image-2" :src="require('../assets/color-background.png')" alt="img home" />
@@ -60,18 +60,18 @@ export default {
   data() {
     // Datos reactivos del componente
     return {
-      message: 'Hello, Vue 3!'
+      message: 'Hello, Vue 3!',
+      
     };
   },
   methods: {
-    // Métodos del componente
   },
   computed: {
     // Propiedades computadas
   },
   mounted() {
-    // Hook de ciclo de vida
-  }
+  },
+
 };
 </script>
 
@@ -184,4 +184,5 @@ export default {
   border-radius: 6px;
   background-color: rgb(109, 112, 112, 35%);
 }
+
 </style>
