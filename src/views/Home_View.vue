@@ -1,13 +1,10 @@
 <template>
-  
-  <div class="slogan-home-container" :style="{ backgroundColor: getBackgroundColor(), color: getTextColor() }">
+  <div class="slogan-home-container">
     <div class="home-content">
-      <div class="home-image">
+      <div class="home-image" @mousemove="parallaxEffect" @mouseleave="resetImage">
         <img id="home-image-2" :src="require('../assets/color-background.png')" alt="img home" />
-      </div>
 
-      <div class="home-image">
-        <img id="home-image" :src="require('../assets/Home-Image.png')" alt="img home" />
+        <img id="home-image" class="fade-out-image" :src="require('../assets/Home-Image.png')" alt="img home" />
       </div>
 
       <div id="slogan-home">
@@ -53,7 +50,7 @@
 <script>
 export default {
   // Aquí van las opciones del componente
-  name: 'MyComponent', // Nombre del componente
+  name: 'HomeView', // Nombre del componente
   props: {
     // Definición de propiedades que el componente puede recibir
   },
@@ -61,10 +58,28 @@ export default {
     // Datos reactivos del componente
     return {
       message: 'Hello, Vue 3!',
-      
+
     };
   },
   methods: {
+    parallaxEffect(event) {
+      const image = event.target;
+      const rect = image.getBoundingClientRect();
+
+      // Calcula el desplazamiento basado en la posición del mouse
+      const moveX = (event.clientX - rect.left - rect.width / 2) * -0.02;
+      const moveY = (event.clientY - rect.top - rect.height / 2) * -0.02;
+
+      // Aplica el margen para mover la imagen
+      image.style.marginLeft = `${moveX}px`;
+      image.style.marginTop = `${moveY}px`;
+    },
+    resetImage(event) {
+      // Resetea la posición cuando el mouse deja la imagen
+      const image = event.target;
+      image.style.marginLeft = '0px';
+      image.style.marginTop = '0px';
+    }
   },
   computed: {
     // Propiedades computadas
@@ -88,8 +103,6 @@ export default {
 }
 
 .hero-social-icon {
-  /* width: 30px !important;
-  text-decoration: none; */
 
   display: inline-block;
   width: 1.5em;
@@ -114,7 +127,16 @@ export default {
   height: 100vh;
   /* Hace que el contenedor ocupe toda la altura de la ventana */
 
+}
 
+
+.fade-out-image {
+  width: 100%;
+  height: auto;
+  /* Aplica un gradiente de máscara en la parte inferior */
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
+  /* Para navegadores que no soportan mask-image */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 97%, rgba(0, 0, 0, 0));
 }
 
 .home-content {
@@ -134,7 +156,11 @@ export default {
   width: 100%;
 
 
-  /* background-color: aqua; */
+  background-color: aqua !important;
+}
+
+.home-image img {
+  transition: margin 0.2s ease-out;
 }
 
 #home-image {
@@ -147,7 +173,7 @@ export default {
 }
 
 #home-image-2 {
-  width: 200%;
+  width: 150%;
   z-index: 1 !important;
   position: absolute;
   top: 50%;
@@ -184,5 +210,4 @@ export default {
   border-radius: 6px;
   background-color: rgb(109, 112, 112, 35%);
 }
-
 </style>

@@ -1,0 +1,76 @@
+<template>
+  <div class="card">
+    <div id="card_left_side">
+      <Icon class="hero-social-icon" :icon="getIconName()" />
+    </div>
+    <div id="card_right_side">
+      <h2>{{ title }}</h2>
+      <p>{{ content }}</p>
+    </div>
+
+  </div>
+</template>
+
+<script>
+import { stringifyQuery } from 'vue-router';
+
+
+export default {
+  name: 'CardComponent', // Nombre del componente
+
+  props: {
+    title: {
+      type: String, // Tipo de la prop
+      required: true // Marca la prop como requerida
+    },
+    content: {
+      type: String,
+      required: false,
+      default: '' // Valor por defecto si no se pasa la prop
+    },
+    icon_name: {
+      type: stringifyQuery,
+      required: true,
+      default: "token-branded:moon"
+    }
+  },
+  methods: {
+    getIconName() {
+      let aux = this.icon_name;
+      return aux;
+    }
+  }
+};
+</script>
+
+<style scoped>
+/* Aquí van los estilos específicos del componente */
+
+.card {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 10px;
+
+  display: flex;
+
+  justify-content:space-around;
+  align-items: center;
+
+  color: inherit;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: transform 0.2s ease-in-out; /* Para suavizar la animación */
+  cursor: pointer; /* Cambia el cursor a pointer */
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Hace que el objeto "salte" */
+}
+
+.hero-social-icon {
+
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+}
+</style>

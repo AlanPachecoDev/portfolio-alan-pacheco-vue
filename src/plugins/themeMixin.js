@@ -19,8 +19,15 @@ export default {
     },
     getTextColor() {
       const theme = this.$vuetify.theme.current;
-      console.log("theme.colors.text: ", theme.colors.text);
       return theme.colors.text;
     },
+    getAuxiliarColor() {
+      const theme = this.$vuetify.theme.current;
+      return theme.colors.auxiliar;
+    },
+    getAlternativeButtonColor(){
+      const theme = this.$vuetify.theme.current;
+      return theme.colors.alternativeButtoncolor;
+    }
   },
 };

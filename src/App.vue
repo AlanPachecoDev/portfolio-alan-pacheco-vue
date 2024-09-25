@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :style="{ backgroundColor: getBackgroundColor(), color: getTextColor() }">
     <!-- Cursor -->
     <div>
       <!-- Outer Circle -->
@@ -8,10 +8,15 @@
       <!-- Inner Circle -->
       <div ref="innerCircle" class="circle-cursor circle-cursor-inner" :style="{ backgroundColor: getContrastColor() }">
       </div>
+
+
     </div>
     <!-- Cursor -->
-    <Nav_Bar></Nav_Bar>
-    <RouterView></RouterView>
+    <!-- Aquí va el contenido del navbar -->
+    <Nav_Bar :style="{ backgroundColor: getHeaderColor() }" :class="navbarClass"></Nav_Bar>
+
+    <RouterView class="routerContent"></RouterView>
+
   </v-app>
 </template>
 
@@ -34,10 +39,13 @@ export default {
       innerX: 0,
       innerY: 0,
       requestId: null,
+      isScrollingDown: false,
+      lastScrollPosition: 0,
+      isAtTop: true,
     };
   },
-
   mounted() {
+    window.addEventListener('scroll', this.handleScroll);
     const outerCircle = this.$refs.outerCircle;
     const innerCircle = this.$refs.innerCircle;
 
@@ -68,8 +76,27 @@ export default {
 
   beforeUnmount() {
     document.removeEventListener("mousedown", this.handleMouseDown);
+    window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
+    handleScroll() {
+      const currentScrollPosition = window.scrollY;
+
+      console.log('currentScrollPosition:', currentScrollPosition); // Añadido para depuración
+
+      if (currentScrollPosition === 0) {
+        this.isAtTop = true;
+        this.isScrollingDown = false;
+      } else {
+        this.isAtTop = false;
+        this.isScrollingDown = currentScrollPosition > this.lastScrollPosition;
+      }
+
+      console.log('isScrollingDown:', this.isScrollingDown); // Añadido para depuración
+      console.log('isAtTop:', this.isAtTop); // Añadido para depuración
+
+      this.lastScrollPosition = currentScrollPosition;
+    },
     handleMouseDown() {
       const innerCircle = this.$refs.innerCircle;
 
@@ -78,11 +105,148 @@ export default {
         innerCircle.classList.remove("grow");
       }, 300);
     }
+  },
+  computed: {
+    navbarClass() {
+      return {
+        'navbar-hidden': this.isScrollingDown,
+        'navbar-visible': !this.isScrollingDown,
+        'navbar-transparent': this.isAtTop,
+      };
+    },
+    navbarStyle() {
+      return {
+
+      };
+    }
   }
 };
 </script>
 
 <style>
+.button {
+/*
+  background-color: #3498db;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 5px;
+  
+  background-size: -100% 100%;
+  transition: color 0.4s ease-out; */
+  /* background: linear-gradient(to right, #000 50%, #CACACA 50%); */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 5px;
+  background-size: 200% 100%;
+}
+
+.button:hover {
+  animation: backgroundShift 0.7s forwards;
+}
+
+@keyframes backgroundShift {
+  0% {
+    background-size: 200% 100%;
+    background-position: left bottom;
+  }
+  100% {
+    background-size: 200% 100%;
+    background-position: right bottom;
+    color: black;
+    font-weight: bold;
+  }
+}
+
+
+.routerContent {
+  margin-top: 7%;
+}
+
+nav {
+  animation: fadeInUp 0.5s ease-out forwards;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  /* transition: transform 0.3s ease, background-color 0.3s ease; */
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+@keyframes fadeOutDown {
+  0% {
+    transform: translateY(0%);
+    /* Empieza fuera de la pantalla */
+    opacity: 0;
+    /* Comienza invisible */
+  }
+
+  50% {
+    transform: translateY(-20%);
+    /* Se mueve hacia abajo parcialmente */
+    opacity: 0.5;
+    /* Aumenta la opacidad */
+  }
+
+  100% {
+    transform: translateY(-100%);
+    /* Llega a la posición final */
+    opacity: 1;
+    /* Se vuelve completamente visible */
+  }
+}
+
+.navbar-visible {
+  animation: fadeInUp 0.5s ease-out forwards;
+  position: fixed;
+  /* Posición fija para que el navbar se mantenga en la parte superior */
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(-100%);
+    /* Empieza fuera de la pantalla */
+    opacity: 0;
+    /* Comienza invisible */
+  }
+
+  50% {
+    transform: translateY(-20%);
+    /* Se mueve hacia abajo parcialmente */
+    opacity: 0.5;
+    /* Aumenta la opacidad */
+  }
+
+  100% {
+    transform: translateY(0);
+    /* Llega a la posición final */
+    opacity: 1;
+    /* Se vuelve completamente visible */
+
+  }
+}
+
+
+.navbar-transparent {
+  background-color: red !important;
+}
+
 /* Para el cursor */
 .circle-cursor {
   position: absolute;

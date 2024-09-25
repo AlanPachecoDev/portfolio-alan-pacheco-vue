@@ -20,6 +20,8 @@ export default createVuetify({
           info: '#2196F3',
           success: '#4CAF50',
           warning: '#FFC107',
+          auxiliar: '#E7E4E4',
+          alternativeButtoncolor: '#E58818',
         },
       },
       dark: {
@@ -35,6 +37,8 @@ export default createVuetify({
           info: '#2196F3',
           success: '#4CAF50',
           warning: '#FFC107',
+          auxiliar: '#575151',
+          alternativeButtoncolor: '#E58818',
         },
       },
     },

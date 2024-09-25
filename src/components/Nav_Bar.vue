@@ -1,5 +1,5 @@
 <template>
-    <header :style="{ backgroundColor: getHeaderColor(), color: getTextColor() }">
+    <header >
         <nav>
             <div id="logo-side">
                 <div class="nav-logo">
