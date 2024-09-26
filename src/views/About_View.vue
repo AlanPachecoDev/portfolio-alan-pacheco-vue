@@ -5,7 +5,7 @@
     </div>
     <div class="rightSideAbout">
       <div class="right-leftContainer">
-        <a>ABOUT ME</a>
+        <p>ABOUT ME</p>
         <div class="single-line" :style="{ backgroundColor: getHeroColor() }"></div>
       </div>
       <div class="right-rightContainer">
@@ -92,7 +92,7 @@ export default {
 
 }
 
-.right-leftContainer a {
+.right-leftContainer p {
   writing-mode: vertical-rl;
   /* Orientación vertical, de derecha a izquierda */
   transform: rotate(180deg);

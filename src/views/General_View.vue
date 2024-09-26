@@ -8,20 +8,22 @@
     </div>
     <br>
     <AboutView></AboutView>
-    
+    <SkillsView></SkillsView>
 </template>
 
 <script>
 import HomeView from "../views/Home_View.vue";
 import CardComponent from "../components/utils/Card_Component.vue";
 import AboutView from "../views/About_View.vue";
+import SkillsView from "../views/Skills_View.vue";
 
 export default {
     name: 'GeneralView', // Nombre del componente
     components:{
         HomeView,
         CardComponent,
-        AboutView
+        AboutView,
+        SkillsView
     }
 };
 </script>
