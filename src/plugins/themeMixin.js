@@ -1,6 +1,10 @@
 // src/mixins/themeMixin.js
 export default {
   methods: {
+    getPrimaryColor() {
+      const theme = this.$vuetify.theme.current;
+      return theme.colors.primary;
+    },
     getHeaderColor() {
       const theme = this.$vuetify.theme.current;
       return theme.colors.header;

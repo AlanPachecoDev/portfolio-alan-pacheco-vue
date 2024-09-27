@@ -13,16 +13,29 @@ import {
   card_dic_en
 } from "../plugins/dictionaries/cards.js";
 
+import {
+  about_me_dic_es, about_me_dic_en
+} from "../plugins/dictionaries/about-me-dicts.js";
+
+import {
+  skills_dic_es, skills_dic_en
+} from "../plugins/dictionaries/skills-dicts.js";
+
+
 export default {
   ES: {
     ...nav_bar_dic_es,
     ...home_dic_es, 
     ...card_dic_es,
+    ...about_me_dic_es,
+    ...skills_dic_es,
   },
 
   EN: {
     ...nav_bar_dic_en,
     ...home_dic_en,
     ...card_dic_en,
+    ...about_me_dic_en,
+    ...skills_dic_en,
   },
 };

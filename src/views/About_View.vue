@@ -5,23 +5,19 @@
     </div>
     <div class="rightSideAbout">
       <div class="right-leftContainer">
-        <p>ABOUT ME</p>
+        <p>{{$t('About_Me_Flag')}}</p>
         <div class="single-line" :style="{ backgroundColor: getHeroColor() }"></div>
       </div>
       <div class="right-rightContainer">
         <div class="right-rightContainer-upper">
-          <h2>NEED A CREATUVE PRODUCT: I CAN HELP YOU!</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod qui harum iusto! Cum nostrum distinctio amet
-            modi aliquam porro accusamus necessitatibus natus ipsa ex vero ullam, placeat fugiat obcaecati dolores!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam fuga quidem numquam quasi? Necessitatibus qui
-            itaque a voluptatibus impedit tempora, at fugit, et, quaerat assumenda earum consequuntur aperiam corporis
-            asperiores.
+          <h2>{{ $t('About_Me_Title')}}</h2>
+          <p>{{ $t('About_Me_Paragraph')}}
           </p>
         </div>
         <div class="right-rightContainer-lower">
-          <input class="button" id="leftButton" type="button" value="HIRE ME"
+          <input class="button" id="leftButton" type="button" :value="$t('About_Me_Contact_Me')"
           :style="generateAlternativeGradientStyle()" />
-          <input class="button" type="button" value="DOWNLOAD CV" :style="generateGradientStyle()"/>
+          <input class="button" type="button" :value="$t('About_Me_Download_CV')" :style="generateGradientStyle()"/>
         </div>
       </div>
     </div>

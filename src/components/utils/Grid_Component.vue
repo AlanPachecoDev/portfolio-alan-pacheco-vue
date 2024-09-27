@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="item" v-for="item in items" :key="item.id">
+    <div class="item" v-for="item in items" :key="item.id" :style="{ backgroundColor: getPrimaryColor() }">
       <Icon class="icon_grid" :icon="item.icon" />
     </div>
   </div>
@@ -43,11 +43,12 @@ export default {
 }
 
 .item {
-  background-color: rgba(85, 84, 84, 0.5);
+
+  /* background-color: rgba(85, 84, 84, 0.5); */
   border-radius: 8px;
   /* padding: 20px; */
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
 
   width: 5em;
   height: 5em;
@@ -57,7 +58,6 @@ export default {
 
 .item i {
   font-size: 40px;
-  color: #007bff;
   /* margin-bottom: 10px; */
 }
 
