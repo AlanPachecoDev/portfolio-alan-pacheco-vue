@@ -21,6 +21,13 @@ import {
   skills_dic_es, skills_dic_en
 } from "../plugins/dictionaries/skills-dicts.js";
 
+import {
+  projects_dic_es, projects_dic_en 
+} from "../plugins/dictionaries/projects-dicts.js";
+
+import {
+  Contact_dic_es, Contact_dic_en 
+} from "../plugins/dictionaries/contact-dicts.js";
 
 export default {
   ES: {
@@ -29,6 +36,8 @@ export default {
     ...card_dic_es,
     ...about_me_dic_es,
     ...skills_dic_es,
+    ...projects_dic_es,
+    ...Contact_dic_es, 
   },
 
   EN: {
@@ -37,5 +46,7 @@ export default {
     ...card_dic_en,
     ...about_me_dic_en,
     ...skills_dic_en,
+    ...projects_dic_en,
+    ...Contact_dic_en,
   },
 };

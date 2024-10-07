@@ -5,6 +5,10 @@ export default {
       const theme = this.$vuetify.theme.current;
       return theme.colors.primary;
     },
+    getSecondaryColor() {
+      const theme = this.$vuetify.theme.current;
+      return theme.colors.secondary;
+    },
     getHeaderColor() {
       const theme = this.$vuetify.theme.current;
       return theme.colors.header;
@@ -24,6 +28,10 @@ export default {
     getTextColor() {
       const theme = this.$vuetify.theme.current;
       return theme.colors.text;
+    },
+    getTextAuxiliarColor() {
+      const theme = this.$vuetify.theme.current;
+      return theme.colors.textAuxiliar;
     },
     getAuxiliarColor() {
       const theme = this.$vuetify.theme.current;

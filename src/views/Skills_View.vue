@@ -265,7 +265,7 @@ export default {
 .single-line {
   margin-top: 20px;
   width: 3px;
-  height: 20%;
+  height: 60px;
 }
 
 .leftSide_Up {

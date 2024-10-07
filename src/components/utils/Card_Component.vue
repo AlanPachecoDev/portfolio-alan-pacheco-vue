@@ -7,7 +7,7 @@
       <h2>{{ title }}</h2>
       <p>{{ content }}</p>
     </div>
-
+    <Icon id="arrow" class="hero-social-icon" icon="ep:arrow-right-bold" />
   </div>
 </template>
 
@@ -19,6 +19,10 @@ export default {
   name: 'CardComponent', // Nombre del componente
 
   props: {
+    url: {
+      type: String, // Tipo de la prop
+      required: true // Marca la prop como requerida
+    },
     title: {
       type: String, // Tipo de la prop
       required: true // Marca la prop como requerida
@@ -45,11 +49,17 @@ export default {
 
 <style scoped>
 /* Aquí van los estilos específicos del componente */
+#arrow{
+  width: 22px;
+}
+
+.card:hover #arrow{
+  color: rgb(113, 111, 111);
+}
 
 .card {
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   padding: 16px;
-  border-radius: 10px;
 
   display: flex;
 
@@ -58,9 +68,10 @@ export default {
 
   color: inherit;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 15px;
   transition: transform 0.2s ease-in-out; /* Para suavizar la animación */
   cursor: pointer; /* Cambia el cursor a pointer */
+  box-shadow: 10px black;
 }
 
 .card:hover {
