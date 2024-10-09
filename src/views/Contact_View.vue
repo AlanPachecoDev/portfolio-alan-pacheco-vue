@@ -222,6 +222,12 @@ export default {
   width: 45%;
   padding: 20px;
   border-radius: 8px;
+  
+}
+
+.contact-form input, textarea{
+  color: black;
+  
 }
 
 .form-group {

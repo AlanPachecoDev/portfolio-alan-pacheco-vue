@@ -27,7 +27,7 @@
             <a href="#projects-view" to="#projects-view"> {{ $t("Portfolio_Text") }}</a>
           </li>
           <li>
-            <a href="#services"> {{ $t("Contact_Text") }}</a>
+            <a href="#contact-view" to="#contact-view"> {{ $t("Contact_Text") }}</a>
           </li>
         </div>
         <div class="nav-sides" id="right-side">
